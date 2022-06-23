@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require_relative "../lib/checkout"
+require_relative "../lib/product_calculator"
 
 require "irb"
 IRB.start(__FILE__)

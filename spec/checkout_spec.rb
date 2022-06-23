@@ -1,8 +1,8 @@
-require "checkout"
+require "product_calculator"
 
-describe Checkout do
+describe ProductCalculator::Checkout do
   it "Total price discount" do
-    co = Checkout.new
+    co = ProductCalculator::Checkout.new
     co.scan('001')
     co.scan('002')
     co.scan('003')
@@ -10,7 +10,7 @@ describe Checkout do
   end
 
   it "Product discount" do
-    co = Checkout.new
+    co = ProductCalculator::Checkout.new
     co.scan('001')
     co.scan('003')
     co.scan('001')
@@ -18,7 +18,7 @@ describe Checkout do
   end
 
   it "Product discount and total discount" do
-    co = Checkout.new
+    co = ProductCalculator::Checkout.new
     co.scan('001')
     co.scan('002')
     co.scan('001')
@@ -27,12 +27,12 @@ describe Checkout do
   end
 
   it "Wrong product scanned" do
-    co = Checkout.new
+    co = ProductCalculator::Checkout.new
     expect(co.scan('000')).to eq 'Product not exist'
   end
 
   it "No products scanned" do
-    co = Checkout.new
+    co = ProductCalculator::Checkout.new
     expect(co.total).to eq '$0.00'
   end
 end
